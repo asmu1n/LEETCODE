@@ -1,4 +1,8 @@
 {
   "name": "LEETCODE",
-  "packageManager": "yarn@4.7.0"
+  "type": "module",
+  "packageManager": "yarn@4.7.0",
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
 }
