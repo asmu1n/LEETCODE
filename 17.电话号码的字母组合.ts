@@ -7,6 +7,9 @@
 
 // @lc code=start
 function letterCombinations(digits: string): string[] {
+    if (!digits) {
+        return [];
+    }
     // 数字和字母的对应关系
     const phoneMap = {
         '2': 'abc',
