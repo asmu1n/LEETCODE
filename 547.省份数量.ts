@@ -23,7 +23,7 @@ function findCircleNum(isConnected: number[][]): number {
                 if (currentCityIndex || currentCityIndex === 0) {
                     // 标记访问
                     visitedCity[currentCityIndex] = true;
-                    // 获取城市关系表
+                    // 获取城市关系表 (开始识别与当前城市相连的城市)
                     const currentCityRelationList = isConnected[currentCityIndex];
                     // 遍历识别是否相连，如果相连且未访问过就推入队列中，进入下一轮识别
                     for (let cityRelationIndex = 0; cityRelationIndex < cityCount; cityRelationIndex++) {
