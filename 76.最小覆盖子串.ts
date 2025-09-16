@@ -31,27 +31,34 @@ function minWindow(s: string, t: string): string {
     // 匹配起始索引
     let start = 0;
     while (right < s.length) {
+        // 扩大窗口
         const curChar = s[right];
         right++;
+        // 检查是否需要的字符
         if (needs.has(curChar)) {
             const preValue = window.get(curChar) || 0;
             const nextValue = preValue + 1;
             window.set(curChar, nextValue);
+            // 匹配成功递增有效值
             if (nextValue === needs.get(curChar)) {
                 valid++;
             }
         }
+        // 当窗口内部满足匹配需求时尝试收缩窗口
         while (valid === needs.size) {
             const curLength = right - left;
+            // 记录最短长度和起始索引
             if (curLength < minLength) {
                 start = left;
                 minLength = curLength;
             }
+            // 收缩窗口
             const startChar = s[left];
             const prevVal = window.get(startChar);
             if (prevVal) {
                 const nextVal = prevVal - 1;
                 window.set(startChar, nextVal);
+                // 若去除的字符是匹配目标中的字符，且数量匹配，则有效值递减
                 if (prevVal === needs.get(startChar)) {
                     valid--;
                 }
@@ -59,6 +66,7 @@ function minWindow(s: string, t: string): string {
             left++;
         }
     }
+    // 返回前还要判断是否找到
     return minLength === s.length + 1 ? '' : s.slice(start, start + minLength);
 }
 // @lc code=end
