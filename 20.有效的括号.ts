@@ -23,7 +23,7 @@ function isValid(s: string): boolean {
             leftStack.push(currChar);
         } else {
             // 识别到右栈内容，判断是否能与左栈内最新匹配
-            if (leftStack.length !== 0 && map[leftStack[leftStack.length - 1]] === currChar) {
+            if (leftStack.length !== 0 && map[leftStack[leftStack.length - 1] as keyof typeof map] === currChar) {
                 leftStack.pop();
             } else {
                 // 匹配的上就左栈弹出，不然直接返回 false
