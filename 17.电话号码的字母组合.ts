@@ -27,7 +27,8 @@ function letterCombinations(digits: string): string[] {
         if (index === digits.length) {
             result.push(path.join(''));
         } else {
-            const charMap = phoneMap[digits[index]];
+            // 获取当前选择数字所对应的字符集
+            const charMap = phoneMap[digits[index] as keyof typeof phoneMap];
             for (const char of charMap) {
                 // 推入当前遍历的字母进入 path 即（做出选择）
                 path.push(char);
