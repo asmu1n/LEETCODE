@@ -17,12 +17,13 @@ function isValid(s: string): boolean {
         '[': ']'
     };
     const leftStack: string[] = [];
+    // 遇到左侧括号就压入左栈，遇到右侧括号就检测与左栈最后一个元素是否匹配，匹配就消除弹出左栈元素，否则提前结束判断直接断定为 false
     for (const currChar of s) {
-        // 判断是否推到左栈
+        // 判断是否压入到左栈
         if (currChar === '(' || currChar === '{' || currChar === '[') {
             leftStack.push(currChar);
         } else {
-            // 识别到右栈内容，判断是否能与左栈内最新匹配
+            // 识别到右侧括号，判断是否能与左栈内最新匹配
             if (leftStack.length !== 0 && map[leftStack[leftStack.length - 1] as keyof typeof map] === currChar) {
                 leftStack.pop();
             } else {
