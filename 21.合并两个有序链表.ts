@@ -36,7 +36,7 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
         // 推进当前合并的链表
         currNode = currNode.next;
     }
-    // 处理最后一个节点
+    // 当其中值相对较小的链表处理完后接着处理另外一个链表后续的节点
     if (node1 === null) {
         // 当前第一个链表已经迭代完，处理第二个链表
         currNode.next = node2;
