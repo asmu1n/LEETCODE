@@ -13,7 +13,7 @@ function lengthOfLIS(nums: number[]): number {
     const dp = new Array(nums.length).fill(1);
     for (let i = 0; i < dp.length; i++) {
         const currentItem = nums[i];
-        // 往前找比当前值小的
+        // 从头开始在前面找比当前值小的
         for (let j = 0; j < i; j++) {
             if (currentItem > nums[j]) {
                 // 找到前面比当前值小的 item ，在 dp 里找到其最大递增序列数
@@ -23,12 +23,7 @@ function lengthOfLIS(nums: number[]): number {
             }
         }
     }
-    const maxItem = dp.reduce((acc, cur) => {
-        if (cur > acc) {
-            acc = cur;
-        }
-        return acc;
-    }, 0);
+    const maxItem = Math.max(...dp);
     return maxItem;
 }
 // @lc code=end
