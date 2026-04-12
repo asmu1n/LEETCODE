@@ -7,7 +7,7 @@
 
 // @lc code=start
 function twoSum(nums: number[], target: number): number[] {
-    const map = new Map()
+    const map = new Map<number, number>()
     for(let i =0;i<nums.length;i++){
         const curNum = nums[i];
         const needNum = target - curNum;
@@ -18,7 +18,7 @@ function twoSum(nums: number[], target: number): number[] {
             map.set(curNum,i)
         }
     }
-    
+    return []
 };
 // @lc code=end
 

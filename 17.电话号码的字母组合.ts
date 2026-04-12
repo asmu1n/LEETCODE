@@ -17,28 +17,25 @@ function letterCombinations(digits: string): string[] {
         '4': 'ghi',
         '5': 'jkl',
         '6': 'mno',
-        '7': 'pqrs',
+        '7': 'pqrs',    
         '8': 'tuv',
         '9': 'wxyz'
     };
     const result: string[] = [];
-    function loop(index: number, path: string[]) {
+    function loop(index: number, path: string) {
         // 当前路径已完成，插入路径
         if (index === digits.length) {
-            result.push(path.join(''));
+            result.push(path);
         } else {
             // 获取当前选择数字所对应的字符集
             const charMap = phoneMap[digits[index] as keyof typeof phoneMap];
             for (const char of charMap) {
                 // 推入当前遍历的字母进入 path 即（做出选择）
-                path.push(char);
-                loop(index + 1, path);
-                // 做完选择后，我们要回撤上一步选择，然后再做另外的选择
-                path.pop();
+                loop(index + 1, path + char);
             }
         }
     }
-    loop(0, []);
+    loop(0, '');
     return result;
 }
 // @lc code=end

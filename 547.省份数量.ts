@@ -20,9 +20,7 @@ function findCircleNum(isConnected: number[][]): number {
             // while 循环识别与当前队列弹出的城市所有相连的城市网
             while (queue.length > 0) {
                 const currentCityIndex = queue.shift();
-                if (currentCityIndex || currentCityIndex === 0) {
-                    // 标记访问
-                    visitedCity[currentCityIndex] = true;
+                if (currentCityIndex !== undefined) {
                     // 获取城市关系表 (开始识别与当前城市相连的城市)
                     const currentCityRelationList = isConnected[currentCityIndex];
                     // 遍历识别是否相连，如果相连且未访问过就推入队列中，进入下一轮识别
@@ -30,6 +28,8 @@ function findCircleNum(isConnected: number[][]): number {
                         const currentCityRelation = currentCityRelationList[cityRelationIndex];
                         if (currentCityRelation === 1 && !visitedCity[cityRelationIndex]) {
                             queue.push(cityRelationIndex);
+                            // 标记访问
+                            visitedCity[cityRelationIndex] = true;
                         }
                     }
                 }
