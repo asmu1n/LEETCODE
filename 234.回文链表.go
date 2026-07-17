@@ -13,7 +13,11 @@
  *     Next *ListNode
  * }
  */
-// package main
+package main
+
+import (
+	. "leetcode/model"
+)
 
 func isPalindrome(head *ListNode) bool {
 	if head == nil || head.Next == nil {

@@ -4,6 +4,9 @@
  *
  * [283] 移动零
  */
+package main
+
+import "testing"
 
 // @lc code=start
 func moveZeroes(nums []int) {
@@ -20,6 +23,11 @@ func moveZeroes(nums []int) {
 }
 
 // @lc code=end
+func TestMoveZeroes(t *testing.T) {
+	nums := []int{0, 1, 0, 3, 12}
+	moveZeroes(nums)
+	t.Log(nums)
+}
 
 /*
 // @lcpr case=start
@@ -31,4 +39,3 @@ func moveZeroes(nums []int) {
 // @lcpr case=end
 
 */
-

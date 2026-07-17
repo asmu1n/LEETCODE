@@ -5,6 +5,8 @@
  * [75] 颜色分类
  */
 
+package main
+
 // @lc code=start
 func sortColors(nums []int) {
 	len := len(nums)
@@ -31,4 +33,3 @@ func sortColors(nums []int) {
 // @lcpr case=end
 
 */
-
