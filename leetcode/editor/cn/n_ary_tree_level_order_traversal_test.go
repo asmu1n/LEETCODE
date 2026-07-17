@@ -27,18 +27,22 @@ func levelOrder(root *Node) (result [][]int) {
 	queue = append(queue, root)
 
 	for len(queue) > 0 {
+		// 记录当前层级的节点数量
 		size := len(queue)
+		// 扩充当前层级的结果切片
+		result = append(result, []int{})
+		// 遍历当前层级的所有节点
 		for range size {
+			// 弹出当前节点，并更新队列
 			curNode := queue[0]
 			queue = queue[1:]
+			// 将当前节点的子节点加入队列
 			if curNode.Children != nil {
 				for i := range curNode.Children {
 					queue = append(queue, curNode.Children[i])
 				}
 			}
-			if len(result) <= depth {
-				result = append(result, []int{})
-			}
+			// 将当前节点的值加入当前层级的切片
 			result[depth] = append(result[depth], curNode.Val)
 		}
 		depth++
