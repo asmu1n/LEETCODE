@@ -16,7 +16,7 @@
 package main
 
 import (
-	. "leetcode/model"
+	. "leetcode/leetcode/editor/cn"
 )
 
 func isPalindrome(head *ListNode) bool {

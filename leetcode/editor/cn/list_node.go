@@ -1,4 +1,4 @@
-package model
+package leetcode_solutions
 
 import "fmt"
 
